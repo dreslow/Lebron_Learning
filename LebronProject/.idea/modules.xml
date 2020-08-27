@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/LebronProject.iml" filepath="$PROJECT_DIR$/.idea/LebronProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Lebron_Learning/.idea/Lebron_Learning.iml" filepath="$PROJECT_DIR$/../Lebron_Learning/.idea/Lebron_Learning.iml" />
+    </modules>
+  </component>
+</project>
