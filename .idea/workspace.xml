@@ -19,14 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a6813f7-878e-4da5-9448-4b61f7598ed7" name="Default Changelist" comment="8-27-20 3:33p">
+    <list default="true" id="9a6813f7-878e-4da5-9448-4b61f7598ed7" name="Default Changelist" comment="8-28-20 9:28a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LebronProject/Test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/LebronProject/Test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LebronProject/FirstTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/LebronProject/FirstTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,7 +49,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.FirstTest">
+    <configuration name="FirstTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Lebron_Learning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LebronProject" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LebronProject/FirstTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lebron_Learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,8 +92,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Lebron_Learning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LebronProject" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LebronProject/Test3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.FirstTest" />
+        <item itemvalue="Python.Test3" />
         <item itemvalue="Python.Test2" />
       </list>
     </recent_temporary>
@@ -88,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598556807815</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="8-28-20 9:28a">
+      <created>1598621326512</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598621326512</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,45 +162,46 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="8-27-20 3:33p" />
-    <option name="LAST_COMMIT_MESSAGE" value="8-27-20 3:33p" />
+    <MESSAGE value="8-28-20 9:28a" />
+    <option name="LAST_COMMIT_MESSAGE" value="8-28-20 9:28a" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1259" height="246" key="GridCell.Tab.0.bottom" timestamp="1598564125075">
+    <state width="1259" height="198" key="GridCell.Tab.0.bottom" timestamp="1598630349317">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1598564125075" />
-    <state width="1259" height="246" key="GridCell.Tab.0.center" timestamp="1598564125073">
+    <state width="1259" height="198" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1598630349317" />
+    <state width="1259" height="198" key="GridCell.Tab.0.center" timestamp="1598630349309">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1598564125073" />
-    <state width="1259" height="246" key="GridCell.Tab.0.left" timestamp="1598564125073">
+    <state width="1259" height="198" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1598630349309" />
+    <state width="1259" height="198" key="GridCell.Tab.0.left" timestamp="1598630349308">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1598564125073" />
-    <state width="1259" height="246" key="GridCell.Tab.0.right" timestamp="1598564125074">
+    <state width="1259" height="198" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1598630349308" />
+    <state width="1259" height="198" key="GridCell.Tab.0.right" timestamp="1598630349310">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1598564125074" />
-    <state width="1259" height="246" key="GridCell.Tab.1.bottom" timestamp="1598564137529">
+    <state width="1259" height="198" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1598630349310" />
+    <state width="1259" height="246" key="GridCell.Tab.1.bottom" timestamp="1598630155352">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.1.bottom/0.23.1280.777@0.23.1280.777" timestamp="1598564137529" />
-    <state width="1259" height="246" key="GridCell.Tab.1.center" timestamp="1598564137528">
+    <state width="1259" height="246" key="GridCell.Tab.1.bottom/0.23.1280.777@0.23.1280.777" timestamp="1598630155352" />
+    <state width="1259" height="246" key="GridCell.Tab.1.center" timestamp="1598630155351">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.1.center/0.23.1280.777@0.23.1280.777" timestamp="1598564137528" />
-    <state width="1259" height="246" key="GridCell.Tab.1.left" timestamp="1598564137527">
+    <state width="1259" height="246" key="GridCell.Tab.1.center/0.23.1280.777@0.23.1280.777" timestamp="1598630155351" />
+    <state width="1259" height="246" key="GridCell.Tab.1.left" timestamp="1598630155351">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.1.left/0.23.1280.777@0.23.1280.777" timestamp="1598564137527" />
-    <state width="1259" height="246" key="GridCell.Tab.1.right" timestamp="1598564137528">
+    <state width="1259" height="246" key="GridCell.Tab.1.left/0.23.1280.777@0.23.1280.777" timestamp="1598630155351" />
+    <state width="1259" height="246" key="GridCell.Tab.1.right" timestamp="1598630155352">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="246" key="GridCell.Tab.1.right/0.23.1280.777@0.23.1280.777" timestamp="1598564137528" />
-    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1598556815907">
+    <state width="1259" height="246" key="GridCell.Tab.1.right/0.23.1280.777@0.23.1280.777" timestamp="1598630155352" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1598621415049">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1598556815907" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1598621415049" />
     <state width="640" height="388" key="XDebugger.FullValuePopup" timestamp="1598562396805">
       <screen x="0" y="23" width="1280" height="777" />
     </state>

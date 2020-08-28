@@ -3,9 +3,22 @@ import numpy as np
 import scipy.optimize as opt
 
 
-Data = np.array(pd.read_csv(r'LebronCLEstatsTest1.csv'))
-X = Data[:, 0:16]
-y = np.floor(Data[:, 17]/10).reshape((-1, 1)).astype(int)
+# Data = np.array(pd.read_csv(r'LebronCLEstatsTest1.csv'))
+# X = Data[:, 0:16]
+# y = np.floor(Data[:, 17]/10).reshape((-1, 1)).astype(int)
+
+Data = np.array(pd.read_csv(r'LebronAllStats.csv'))
+X_init = np.column_stack((Data[:, :10], Data[:, 19:27]))
+np.random.seed(1)
+np.random.shuffle(X_init)
+y_init = Data[:, 28].reshape((-1, 1)).astype(int)
+np.random.seed(1)
+np.random.shuffle(y_init)
+X = X_init[:1000]
+y = y_init[:1000]
+X_test = X_init[1000:]
+y_test = y_init[1000:]
+m = len(X)
 
 
 # Normalize features
@@ -24,6 +37,7 @@ X_norm, _, _ = featureNormalize(X)
 
 
 def sigmoid(z):
+    z = np.array()
     return 1.0 / (1.0 + np.exp(-z))
 
 
@@ -88,8 +102,8 @@ def randInitializeWeights(L_in, L_out):
 # Randomly initialize parameters for learning
 Input_layersize = X.shape[1]
 Hidden_layersize = 25
-Num_labels = 6
-lambda_t = 3
+Num_labels = 7
+lambda_t = 1
 initial_theta1 = randInitializeWeights(Input_layersize, Hidden_layersize)
 initial_theta2 = randInitializeWeights(Hidden_layersize, Num_labels)
 
@@ -97,7 +111,7 @@ initial_theta2 = randInitializeWeights(Hidden_layersize, Num_labels)
 initial_NN_params = np.concatenate((initial_theta1.ravel(order='F'), initial_theta2.ravel(order='F')))
 
 # Optimize the cost function
-NN_params_int = opt.fmin_tnc(nnCostFunction, x0=initial_NN_params, args=(Input_layersize, Hidden_layersize, Num_labels, X, y, lambda_t), fprime=nnGradient, maxfun=100)
+NN_params_int = opt.fmin_tnc(nnCostFunction, x0=initial_NN_params, args=(Input_layersize, Hidden_layersize, Num_labels, X, y, lambda_t), fprime=nnGradient)
 NN_params_opt = NN_params_int[0]
 Theta1_opt = np.reshape(NN_params_opt[:Hidden_layersize * (Input_layersize + 1)], (Hidden_layersize, Input_layersize + 1),
                     order='F')
