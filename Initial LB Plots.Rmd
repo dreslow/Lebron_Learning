@@ -8,6 +8,14 @@ library(ggplot2)
 #library(plotly)
 ```
 
+<<<<<<< HEAD
+=======
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+>>>>>>> 26e32a7c11fe522ba6a6f1a0e4a912c9e6c0f1f0
 ```{r get_data, message= FALSE}
 urlfile <- "https://raw.githubusercontent.com/dreslow/Lebron_Learning/master/LebronProject/LebronAllStats.csv"
   
@@ -35,6 +43,10 @@ for (feature in cols) {
     plot_list[[feature]] <- p
 }
 
+<<<<<<< HEAD
+=======
+# Another option: create pdf where each page is a separate plot.
+>>>>>>> 26e32a7c11fe522ba6a6f1a0e4a912c9e6c0f1f0
 pdf("dotplots.pdf")
 for (feature in cols) {
     print(plot_list[[feature]])
@@ -56,6 +68,10 @@ for (feature in cols) {
     plot_list[[feature]] <- p
 }
 
+<<<<<<< HEAD
+=======
+# Another option: create pdf where each page is a separate plot.
+>>>>>>> 26e32a7c11fe522ba6a6f1a0e4a912c9e6c0f1f0
 pdf("bucketplots.pdf")
 for (feature in cols) {
     print(plot_list[[feature]])
