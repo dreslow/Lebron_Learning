@@ -11,10 +11,6 @@ library(tidyverse)
 
 Next Steps:
 
--ungroup Cavs
-
--Group date as month
-
 -Box plot:
 	rebounds 
 	assists
@@ -28,15 +24,6 @@ data <- read_csv(url(urlfile))
 
 ```
 
-
-```{r subset}
-drop1 <- c('FG',"FGA","FG%","3P","3PA","3P%","FT","FTA","FT%","GmSc","PlusMinus", "PTS", "10PT BCKT")
-
-data_names <- data[,!names(data) %in% drop1]
-
-cols <- colnames(data_names)
-```
-
 ```{r ungroup_cavs}
 # 32 -> 8 -> 32 -> 22
 #sort to Cavs1 -> Heat -> Cavs2 -> Lakers
@@ -48,13 +35,22 @@ data <- data %>%
                         if_else((`Team` == 32 & `Season` < 11), 'Cavs1', 'Cavs2'))))
 ```
 
+```{r subset}
+drop1 <- c('FG',"FGA","FG%","3P","3PA","3P%","FT","FTA","FT%","GmSc","PlusMinus", "PTS", "10PT BCKT", "Team")
+
+data_names <- data[,!names(data) %in% drop1]
+
+cols <- colnames(data_names)
+```
+
+
 ```{r message = FALSE}
 
 plot_list = list()
 for (feature in cols) {
   
-    p <- ggplot(data = data, mapping = aes(x = .data[[feature]], y = data$"PTS"))
-    p <- p + geom_point()
+    p <- ggplot(data = data, mapping = aes(x = .data[[feature]], y = data$"PTS", color = `Home(0)/Away(1)`))
+    p <- p + geom_jitter()
     p <- p + xlab(feature) +ylab('Continuous. Points')
     
     plot_list[[feature]] <- p
@@ -88,3 +84,24 @@ for (feature in cols) {
 dev.off()
 
 ```
+
+```{r hist message = FALSE}
+
+plot_list = list()
+for (feature in cols) {
+  
+    p <- ggplot(data = data, mapping = aes(x = .data[[feature]]))
+    p <- p + geom_histogram()
+    p <- p + xlab(feature) +ylab('Count') + theme_classic()
+    
+    plot_list[[feature]] <- p
+}
+
+pdf("hists.pdf")
+for (feature in cols) {
+    print(plot_list[[feature]])
+}
+dev.off()
+
+```
+
