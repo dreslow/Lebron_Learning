@@ -2,9 +2,10 @@
 title: "R Notebook"
 output: html_notebook
 ---
-```{r libraries}
+```{r libraries, message =FALSE}
 library(readr)
 library(ggplot2)
+library(tidyverse)
 #library(plotly)
 ```
 
@@ -27,12 +28,24 @@ data <- read_csv(url(urlfile))
 
 ```
 
+
 ```{r subset}
 drop1 <- c('FG',"FGA","FG%","3P","3PA","3P%","FT","FTA","FT%","GmSc","PlusMinus", "PTS", "10PT BCKT")
 
 data_names <- data[,!names(data) %in% drop1]
 
 cols <- colnames(data_names)
+```
+
+```{r ungroup_cavs}
+# 32 -> 8 -> 32 -> 22
+#sort to Cavs1 -> Heat -> Cavs2 -> Lakers
+# 0, 887, 1215
+
+data <- data %>%
+  mutate(Team.name = if_else(`Team` == 8,'Heat',
+                        if_else(`Team` == 22, 'Lakers',
+                        if_else((`Team` == 32 & `Season` < 11), 'Cavs1', 'Cavs2'))))
 ```
 
 ```{r message = FALSE}
