@@ -2,10 +2,14 @@ import pandas as pd
 import numpy as np
 import scipy.optimize as opt
 
-# 9-9-20 4:25 optimization reaches local minima
-# 9-9-20 4:34 best guess: data is underfit (high bias) - recommend adding polynomial features
-# 9-10-20 9:09 adding polynomial features decreases accuracy in all sets
+# 9-9-20 4:34p best guess: data is underfit (high bias) - recommend adding polynomial features
+# 9-10-20 9:09a adding polynomial features decreases accuracy in all sets
 # Recommend normalizing after adding polynomial features and determining F1 score
+# 9-10-20 10:27a mapFeature is flawed and does not produce polynomial features - needs fix
+# 9-10-20 11:18a mapFeature fixed
+# 9-10-20 12:37p normalized after adding poly features - still cannot increase accuracy of CV set
+# Increased accuracy of training set through overfitting (induced high variance)
+# Recommend computing per class and total F1 scores
 
 Data = np.array(pd.read_csv(r'LebronAllStats.csv'))
 
@@ -42,32 +46,24 @@ def featureNormalize(x):
     return x_norm
 
 
-# X_trainNorm = featureNormalize(X_train)
-# X_CVNorm = featureNormalize(X_CV)
-# X_testNorm = featureNormalize(X_test)
-print('breakpoint')
-
-
 def mapFeature(x, degree):
     out = np.ones((len(x), 1))
     for i in range(np.size(x, 1) - 1):
         for j in range(1, degree + 1):
             for k in range(j + 1):
-                out = np.concatenate((out, np.reshape(x[:, i] ** (i - j) * x[:, i + 1] ** j, (len(x), 1))), axis=1)
+                out = np.concatenate((out, np.reshape(x[:, i] ** (j - k) * x[:, i + 1] ** k, (len(x), 1))), axis=1)
     return out
 
 
-# X_trainNormMap = mapFeature(X_trainNorm, 3)
-# X_CVNormMap = mapFeature(X_CVNorm, 3)
-# X_testNormMap = mapFeature(X_testNorm, 3)
-
-X_trainMap = mapFeature(X_train, 3)
-X_CVMap = mapFeature(X_CV, 3)
-X_testMap = mapFeature(X_test, 3)
+# Map features, then normalize
+Degree = 1
+X_trainMap = mapFeature(X_train, Degree)
+X_CVMap = mapFeature(X_CV, Degree)
+X_testMap = mapFeature(X_test, Degree)
 print('breakpoint')
-X_trainNormMap = featureNormalize(X_trainMap)
-X_CVNormMap = featureNormalize(X_CVMap)
-X_testNormMap = featureNormalize(X_testMap)
+X_trainNormMap = np.column_stack((np.ones(len(X_trainMap)), featureNormalize(X_trainMap[:, 1:])))
+X_CVNormMap = np.column_stack((np.ones(len(X_CVMap)), featureNormalize(X_CVMap[:, 1:])))
+X_testNormMap = np.column_stack((np.ones(len(X_testMap)), featureNormalize(X_testMap[:, 1:])))
 print('breakpoint')
 
 
@@ -110,7 +106,7 @@ def oneVsAll(x, Y, num_labels, Lambda):
 # Parameters for learning
 Num_labels = len(np.unique(y_init))
 print('breakpoint')
-reg_lambda = 1
+reg_lambda = 2
 opt_theta = oneVsAll(X_trainNormMap, y_train, Num_labels, reg_lambda)
 
 
@@ -125,13 +121,14 @@ def predictOneVsAll(all_theta, x):
 # Training set accuracy based on class predictions
 pred = np.mean(predictOneVsAll(opt_theta, X_trainNormMap) == y_train) * 100
 print('Training set accuracy: ', pred)
+# 9-10-20 11:23a max train set accuracy 71.13% w/ lambda = 0 and degree = 6
 
 # CV set accuracy based on class predictions
 pred2 = np.mean(predictOneVsAll(opt_theta, X_CVNormMap) == y_CV) * 100
 pred2_results = predictOneVsAll(opt_theta, X_CVNormMap)
 print('breakpoint')
 print('CV set accuracy: ', pred2)
-# 9-10-20 8:59 max CV set accuracy 53.48% w/ lambda = 2
+# 9-10-20 8:59a max CV set accuracy 53.48% w/ lambda = 2 and degree = 1 (no poly features)
 
 # Test set accuracy based on class predictions
 pred3 = np.mean(predictOneVsAll(opt_theta, X_testNormMap) == y_test) * 100
@@ -141,3 +138,12 @@ print('Test set accuracy: ', pred3)
 true_result_amounts = np.unique(y_CV, return_counts=True)[1]
 pred_result_amounts = np.unique(pred2_results, return_counts=True)[1]
 print('breakpoint')
+
+
+# Precision, Recall, and F1 scores
+def PrecisionRecall(theta, true_y, pred_y):
+    labels = np.unique(true_y)
+    num_labels = len(np.unique(true_y))
+    for i in range(labels):
+        pred_y == labels[i]
+
