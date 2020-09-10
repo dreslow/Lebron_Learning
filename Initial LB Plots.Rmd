@@ -8,6 +8,18 @@ library(ggplot2)
 #library(plotly)
 ```
 
+Next Steps:
+
+-ungroup Cavs
+
+-Group date as month
+
+-Box plot:
+	rebounds 
+	assists
+	TO
+	any box score stat
+
 ```{r get_data, message= FALSE}
 urlfile <- "https://raw.githubusercontent.com/dreslow/Lebron_Learning/master/LebronProject/LebronAllStats.csv"
   
